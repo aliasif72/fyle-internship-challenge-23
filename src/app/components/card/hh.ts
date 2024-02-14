@@ -1,0 +1,57 @@
+// <div *ngIf="repository[githubUsername] && user.username"  class="m-auto grid grid-rows w-[60%] border-2 border-slate-400">
+//   <div class="text-sm leading-6 ">
+//     <figure class="grid grid-cols bg-slate-100 rounded-lg p-8">
+//         <figcaption class="flex items-center space-x-10"><img src="https://tailwindcss.com/_next/static/media/ryan-florence.3af9c9d9.jpg" alt="" class="flex-none w-25 h-25 rounded-full object-cover">
+//             <div class="flex-auto">
+//                 <div class="text-base text-slate-900 font-semibold dark:text-slate-300">
+//                        {{user.username}}
+//                 </div>
+//                 <div class="mt-0.5">
+//                     {{user[githubUsername].bio}}
+//                     <br>
+//                     {{user[githubUsername].location || "INDIA"}}
+//                 </div>
+//                 <div class="mt-0.5">
+//                   Twitter: {{user[githubUsername].url}}
+//               </div>
+//             </div>
+//          </figcaption>
+//         <blockquote class=" flex flex-row gap-4 mt-5 text-slate-700 dark:text-slate-300">
+//     <svg class="h-4 w-4 mt-1 ml-4 text-slate-600"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3" />  <line x1="8" y1="12" x2="16" y2="12"/></svg>
+//     <p ><a class="cursor-pointer"href="{{user[githubUsername].url}}">{{user[githubUsername].url}} </a></p>
+//       </blockquote>
+//     </figure>
+// </div>
+
+
+// <div id="cards" class=" grid grid-cols-2 gap-4 m-auto mt-5">
+//  <div *ngFor= "let repo of repository[githubUsername]" class="max-w-sm rounded overflow-hidden border-2 border-slate-300">
+//       <div class="px-6 py-4">
+//         <div  class="font-bold text-xl mb-2">{{repo.repoName}}</div>
+//         <p class="text-gray-700 text-base">{{repo.description}}</p>
+//       </div>
+//       <div class="px-6 pt-4 pb-2">
+//           <span *ngFor="let language of repo.languages" [class] = "staticStyle">{{language}}</span>  
+//         </div>
+//       </div>
+//     </div>
+
+//      <nav class=" m-auto mt-5 flex flex-row-2">
+//       <ul class=" list-style-none flex ">
+//         <li (click)="(pageNo>1)?prevHandler():{}"  [class]="(pageNo>1)?this.paginationStyle:this.prevBtn">Previous</li>
+//         <li  (click)="(next)?nextHandler():{}" [class]="(next)?this.paginationStyle:this.prevBtn">Next </li>
+//       </ul>
+    
+      
+//     <select  #pageSize (change)="eventPageSize(pageSize.value)" id="pageSize" class="bg-gray-50 m-auto px-3 pr-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[10%] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+//       <option selected value="10">10</option>
+//       <option value="20">20</option>
+//       <option value="50">50</option>
+//       <option value="100">100</option>
+//     </select>
+    
+//     </nav>
+// </div>
+
+
+
