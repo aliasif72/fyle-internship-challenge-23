@@ -1,4 +1,3 @@
-
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { CardComponent } from './card.component';
 
@@ -8,7 +7,7 @@ describe('CardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CardComponent]
+      declarations: [CardComponent],
     });
     fixture = TestBed.createComponent(CardComponent);
     component = fixture.componentInstance;
@@ -16,15 +15,17 @@ describe('CardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
- 
+
   it('should emit event when changing page size', () => {
     spyOn(component.parentNavFun, 'emit');
 
     const newSize = '20';
     component.eventPageSize(newSize);
 
-    expect(component.parentNavFun.emit).toHaveBeenCalledWith({ pageNo: component.pageNo, pageSize: parseInt(newSize) });
+    expect(component.parentNavFun.emit).toHaveBeenCalledWith({
+      pageNo: component.pageNo,
+      pageSize: parseInt(newSize),
+    });
   });
 
   it('should decrease page number in prevHandler', () => {
@@ -34,7 +35,10 @@ describe('CardComponent', () => {
     component.prevHandler();
 
     expect(component.pageNo).toBe(2);
-    expect(component.parentNavFun.emit).toHaveBeenCalledWith({ pageNo: 2, pageSize: component.pageSize });
+    expect(component.parentNavFun.emit).toHaveBeenCalledWith({
+      pageNo: 2,
+      pageSize: component.pageSize,
+    });
   });
 
   it('should not decrease page number below 1 in prevHandler', () => {
@@ -44,7 +48,10 @@ describe('CardComponent', () => {
     component.prevHandler();
 
     expect(component.pageNo).toBe(1);
-    expect(component.parentNavFun.emit).toHaveBeenCalledWith({ pageNo: 1, pageSize: component.pageSize });
+    expect(component.parentNavFun.emit).toHaveBeenCalledWith({
+      pageNo: 1,
+      pageSize: component.pageSize,
+    });
   });
 
   it('should increase page number in nextHandler', () => {
@@ -52,15 +59,13 @@ describe('CardComponent', () => {
     component.nextHandler();
 
     expect(component.pageNo).toBe(2);
-    expect(component.parentNavFun.emit).toHaveBeenCalledWith({ pageNo: 2, pageSize: component.pageSize });
+    expect(component.parentNavFun.emit).toHaveBeenCalledWith({
+      pageNo: 2,
+      pageSize: component.pageSize,
+    });
   });
 
-    afterEach(() => {
+  afterEach(() => {
     fixture.destroy();
   });
 });
-
-
-
-
-

@@ -10,11 +10,10 @@ export interface IUser {
   public_repos: number;
 }
 
-
 export interface IRepo {
   name: string;
- description:string,
- languages_url:string
+  description: string;
+  languages_url: string;
 }
 
 @Injectable({
@@ -23,10 +22,10 @@ export interface IRepo {
 export class ApiService {
   constructor(private httpClient: HttpClient) {}
 
-  getUser(githubUsername: string): Observable<IUser>{
+  getUser(githubUsername: string): Observable<IUser> {
     return this.httpClient.get(
       `https://api.github.com/users/${githubUsername}`
-    )as Observable<IUser>;
+    ) as Observable<IUser>;
   }
 
   getRepos(
@@ -39,10 +38,13 @@ export class ApiService {
     ) as Observable<Array<IRepo>>;
   }
 
-  getLangs(githubUsername: string, repoName: string):Observable<{[key:string]:number}> {
+  getLangs(
+    githubUsername: string,
+    repoName: string
+  ): Observable<{ [key: string]: number }> {
     return this.httpClient.get(
-      `https://api.github.com/repos/${githubUsername}/${repoName}/languages` 
-    ) as Observable<{[key:string]:number}>
+      `https://api.github.com/repos/${githubUsername}/${repoName}/languages`
+    ) as Observable<{ [key: string]: number }>;
     // implement getRepos method by referring to the documentation. Add proper types for the return type and params
   }
 }
